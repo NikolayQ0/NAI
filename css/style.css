@@ -1,0 +1,583 @@
+@import "fonts.css";
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: #000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Roboto';
+}
+
+main {
+    min-height: 100vh;
+}
+
+.layout {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.workspace__image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 940px;
+    background-image: url("../img/work-space.jpg");
+    background-size: cover;
+    background-position: 60%;
+    background-repeat: no-repeat;
+}
+
+/* Хитбоксы */
+.workspace__hotspot {
+    position: absolute;
+    cursor: pointer;
+}
+
+.workspace__hotspot--book {
+    left: 40%;
+    top: 59%;
+    width: 250px;
+    height: 15%;
+}
+
+.workspace__hotspot--monitor {
+    left: 59%;
+    top: 15%;
+    width: 33%;
+    height: 47%;
+}
+
+
+
+/* Книга */
+.book--opened {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+
+.book {
+    /* КОДОВОЕ СЛОВО - озарениеФриланс */
+    width: 765px;
+    height: 500px;
+    background-image: url("../img/book.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 21%;
+    left: 30%;
+    overflow: hidden;
+}
+
+/* Развороты */
+.spread {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: row;
+}
+
+.page {
+    width: 50%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Стрелки */
+.book__arrows {
+    position: absolute;
+    display: flex;
+    gap: 600px;
+    left: 5%;
+    bottom: 1%;
+    z-index: 9;
+}
+
+.arrow {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.2s;
+}
+
+.arrow-left {
+    transform: rotateY(180deg);
+}
+
+.arrow:hover {
+    opacity: 1;
+}
+
+.page h3 {
+    font-size: 26px;
+}
+
+.intro {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    z-index: 99;
+    opacity: 1;
+    transition: opacity 1s ease;
+    pointer-events: all;
+}
+
+.intro--hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro__text {
+    max-width: 900px;
+    text-align: center;
+    color: #fff;
+    font-size: 28px;
+    font-family: "Roboto", sans-serif;
+    line-height: 1.5;
+    white-space: pre-line;
+}
+
+.monitor__notify {
+    position: absolute;
+    top: 25%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: #ff0000;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+    animation: pulse 1.5s infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.prologue2 {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+}
+
+.prologue2--visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.prologue2__text {
+    max-width: 900px;
+    text-align: center;
+    color: #fff;
+    font-size: 28px;
+    font-family: "Roboto", sans-serif;
+    line-height: 1.5;
+    white-space: pre-line;
+}
+
+.desktop-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+}
+
+.desktop-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.desktop {
+    width: 90%;
+    max-width: 1300px;
+    height: 80vh;
+    background-image: url("../img/pc-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 20px solid rgb(48, 48, 48);
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+.desktop__content {
+    padding: 40px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.terminal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    height: 600px;
+    background: #000;
+    border: 8px ridge #c0c0c0;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+    font-family: 'Courier New', monospace;
+    display: none;
+    z-index: 11;
+}
+
+.terminal.active {
+    display: block;
+}
+
+.terminal-header {
+    background: linear-gradient(to bottom, navy, #1084d0);
+    color: white;
+    padding: 2px 6px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.terminal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+.terminal-body {
+    height: calc(100% - 28px);
+    padding: 10px;
+    overflow-y: auto;
+    color: white;
+    background: #000;
+    text-align: left;
+}
+
+.prompt {
+    margin-right: 8px;
+    font-weight: bold;
+    user-select: none;
+}
+
+#terminalInput {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    flex: 1;
+    resize: none;
+    overflow: hidden;
+    height: auto;
+    min-height: 1em;
+    line-height: 1.2;
+    width: 100%;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    min-height: 20px;
+}
+
+#terminalOutput div {
+    margin: 2px 0;
+    text-align: left;
+}
+
+.desktop-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s;
+    z-index: 11;
+}
+
+.desktop-icon:hover {
+    filter: brightness(1.3);
+}
+
+.desktop-icon:active {
+    transform: translateY(2px);
+}
+
+.desktop-icon__img {
+    width: 48px;
+    height: 48px;
+    display: block;
+    margin: 0 auto 8px;
+    image-rendering: pixelated;
+}
+
+.desktop-icon__label {
+    color: white;
+    font-family: 'MS Sans Serif', sans-serif;
+    font-size: 12px;
+    background: navy;
+    padding: 2px 6px;
+    border: 1px solid #000;
+    box-shadow: 1px 1px 0 #fff, 2px 2px 0 #000;
+    display: block;
+    margin: 0 auto;
+}
+
+.desktop-icon.selected .desktop-icon__label {
+    background: #000080;
+    color: yellow;
+}
+
+.message {
+    margin: 8px 0;
+    padding: 6px 0;
+    border-left: 3px solid #00ff00;
+    padding-left: 10px;
+    animation: fadeIn 0.5s;
+}
+
+.message.unread {
+    background: rgba(0, 50, 0, 0.4);
+    font-weight: bold;
+}
+
+#videoIcon {
+    margin-left: 400px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#monitorNotify {
+    position: absolute;
+    top: 50px;
+    right: -50px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    display: none;
+}
+
+.terminal-body {
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+#terminalOutput {
+    white-space: pre-wrap;
+}
+
+/* Видеопроигрыватель */
+.video-player {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 900px;
+    height: 80vh;
+    max-height: 600px;
+    background: #000;
+    border: 1vw ridge #c0c0c0;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+    font-family: 'Courier New', monospace;
+    display: none;
+    z-index: 12;
+    padding: 2vw;
+    box-sizing: border-box;
+}
+
+.video-player video {
+    width: 100%;
+    height: calc(100% - 5vw);
+    background: #000;
+}
+
+.video-close {
+    position: absolute;
+    top: 1vw;
+    right: 1vw;
+    background: none;
+    border: none;
+    color: white;
+    font-size: clamp(16px, 3vw, 24px);
+    cursor: pointer;
+}
+
+
+
+
+
+@media (max-width: 2560px) {
+    .workspace__hotspot--book {
+        position: absolute;
+        left: 45%;
+        top: 62%;
+        width: 10%;
+        height: 13%;
+        cursor: pointer;
+    }
+
+    .workspace__hotspot--monitor {
+        position: absolute;
+        top: 17%;
+        width: 36%;
+        height: 40%;
+        transform: rotate(10deg);
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 1440px) {
+    .workspace__hotspot--book {
+        position: absolute;
+        left: 40%;
+        top: 59%;
+        width: 13%;
+        height: 13%;
+        cursor: pointer;
+    }
+
+    .workspace__hotspot--monitor {
+        position: absolute;
+        top: 17%;
+        width: 36%;
+        height: 40%;
+        transform: rotate(10deg);
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 1024px) {
+    .workspace__hotspot--book {
+        position: absolute;
+        left: 30%;
+        top: 59%;
+        width: 20%;
+        height: 13%;
+        cursor: pointer;
+    }
+
+    .workspace__hotspot--monitor {
+        position: absolute;
+        top: 15%;
+        width: 36%;
+        height: 40%;
+        transform: rotate(10deg);
+        cursor: pointer;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .workspace__hotspot--book {
+        position: absolute;
+        left: 25%;
+        top: 59%;
+        width: 20%;
+        height: 13%;
+        transform: rotate(10deg);
+        cursor: pointer;
+    }
+
+    .workspace__hotspot--monitor {
+        position: absolute;
+        top: 15%;
+        width: 36%;
+        height: 40%;
+        transform: rotate(10deg);
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 425px) {
+    .workspace__hotspot--book {
+        position: absolute;
+        left: 4%;
+        top: 59%;
+        width: 120px;
+        height: 13%;
+        cursor: pointer;
+    }
+
+    .workspace__hotspot--monitor {
+        position: absolute;
+        top: 15%;
+        width: 36%;
+        height: 40%;
+        cursor: pointer;
+    }
+}
