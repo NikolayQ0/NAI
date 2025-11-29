@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NAI</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <div class="layout">
+            <div class="workspace">
+                <div class="workspace__image-wrapper" role="img" aria-label="Рабочее место">
+                    <div class="workspace__hotspot workspace__hotspot--book" tabindex="0" aria-label="Книга"
+                        role="button"></div>
+                    <div class="workspace__hotspot workspace__hotspot--monitor" tabindex="0" aria-label="Монитор"
+                        role="button">
+                        <div class="monitor__notify" id="monitorNotify">0</div>
+                    </div>
+
+                    <div class="book--opened">
+                        <div class="book"> <!-- см. в css -->
+
+                            <div class="book__arrows">
+                                <img src="img/arrow.png" class="arrow arrow-left">
+                                <img src="img/arrow.png" class="arrow arrow-right">
+                            </div>
+
+                            <div class="spread">
+                                <div class="page">
+                                    <h3>NAI</h3>
+                                    <span>Рецепт Цезаря:</span>
+                                    <ol>
+                                        <li>Используйте "Салат" чтобы получить "Цезаря"</li>
+                                        <li>Разложите "Салат" на части</li>
+                                        <li>Положите их в ряд по индексам</li>
+                                        <ul>
+                                            <li>С = 18</li>
+                                            <li>а = 0</li>
+                                            <li>л = 12</li>
+                                            <li>а = 0</li>
+                                            <li>т = 19</li>
+                                        </ul>
+                                        <li>Прибавьте 3</li>
+                                        <ul>
+                                            <li>Ф = 21</li>
+                                            <li>г = 3</li>
+                                            <li>о = 15</li>
+                                            <li>г = 3</li>
+                                            <li>х = 22</li>
+                                        </ul>
+                                    </ol>
+                                </div>
+
+                                <div class="page">
+                                    <h3>Поздравляю!</h3>
+                                    <h4>Вы получили «Цезаря»</h4>
+                                    <p>Добавьте соль, перец по вкусу</p>
+                                </div>
+                            </div>
+
+                            <div class="spread">
+                                <div class="page">
+                                    <h2>Эта книга что то скрывает. Попробуй посмотреть в коде элемента</h2>
+                                </div>
+                                <div class="page">
+                                    <h1></h1>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="monitor">
+                        <div class="desktop-overlay" id="desktopOverlay">
+                            <div class="desktop" id="desktop">
+                                <div class="desktop__content">
+                                    <div class="desktop-icon" id="terminalIcon">
+                                        <img src="img/pc-terminal.png" alt="Terminal" class="desktop-icon__img">
+                                        <span class="desktop-icon__label">Консоль</span>
+                                    </div>
+
+                                    <div id="terminal" class="terminal">
+                                        <div class="terminal-header">
+                                            <span>NAI Resistance Console</span>
+                                            <button class="terminal-close">×</button>
+                                        </div>
+                                        <div class="terminal-body" id="terminalBody">
+                                            <div id="terminalOutput"></div>
+                                            <div class="terminal-input-line">
+                                                <span class="prompt">&gt;</span>
+                                                <textarea id="terminalInput" autocomplete="off" rows="1"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="desktop-icon" id="videoIcon" style="display: none; left: 60%;">
+                                        <img src="img/barinov.PNG" alt="Video" class="desktop-icon__img">
+                                        <span class="desktop-icon__label">Поздравление</span>
+                                    </div>
+
+                                    <div id="videoPlayer" class="video-player" style="display: none;">
+                                        <video controls preload="auto" muted>
+                                            <source src="videos/barinov.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <button class="video-close">×</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </main>
+    <div class="intro" aria-hidden="false">
+        <div class="intro__text"></div>
+    </div>
+    <div class="prologue2" aria-hidden="true">
+        <div class="prologue2__text"></div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
